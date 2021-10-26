@@ -34,7 +34,6 @@ pipeline {
                         sudo docker push bharath1308/train-schedule:$BUILD_NUMBER
                        '''
                     }
-                }
             }
         }
         stage('CanaryDeploy') {
