@@ -19,7 +19,7 @@ pipeline {
       //     }
             steps {
                 script {
-                  sh 'sudo docker image build -t bharath1308/train-schedule:$BUILD_NUMBER'
+                  sh 'sudo docker image build -t bharath1308/train-schedule:$BUILD_NUMBER .'
                     }
                 }
         }
