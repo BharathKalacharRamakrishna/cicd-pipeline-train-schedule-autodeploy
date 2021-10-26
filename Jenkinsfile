@@ -12,7 +12,8 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
-        stage('Build Docker Image') {
+        stage('Build Docker Image') 
+        {
             when {
                 branch 'master'
            }
@@ -21,9 +22,7 @@ pipeline {
                   sh 'sudo docker image build -t bharath1308/train-schedule:$BUILD_NUMBER'
                     }
                 }
-            }
         }
-
         stage('Push Docker Image') {
             when {
                 branch 'master'
