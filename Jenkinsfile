@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         //be sure to replace "bhavukm" with your own Docker Hub username
-        DOCKER_IMAGE_NAME = "bharath1308/train-schedule"
+        DOCKER = credentials ('bharath_DockerHub')
     }
     stages {
         stage('Build') {
@@ -29,9 +29,10 @@ pipeline {
       //      }
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
-                        app.push("${env.BUILD_NUMBER}")
-                        app.push("latest")
+                    sh '''
+                        sudo docker login --username $DOCKER_USR --password $DOCKER_PSW
+                        sudo docker push bharath1308/train-schedule:$BUILD_NUMBER
+                       '''
                     }
                 }
             }
