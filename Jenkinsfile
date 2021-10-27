@@ -42,7 +42,7 @@ pipeline {
                     enableConfigSubstitution: true
                 )
             }
-        }
+       
         stage('DeployToProduction') {
           
             environment { 
@@ -62,5 +62,5 @@ pipeline {
                 )
             }
         }
-    }
+    
 }
